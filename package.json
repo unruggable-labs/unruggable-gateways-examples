@@ -1,0 +1,25 @@
+{
+  "name": "@unruggable-labs/gateway-examples",
+  "description": "Example code for writing client integrations using the Unruggable Gateway codebase.",
+  "version": "0.0.1",
+  "keywords": [
+    "Ethereum",
+    "Solidity",
+    "Foundry",
+    "Forge",
+    "Anvil",
+    "Hardhat",
+    "ENS",
+    "Ethereum Naming System"
+  ],
+  "author": "clowes.eth",
+  "license": "MIT",
+  "dependencies": {
+    "@adraffy/blocksmith": "^0.0.26",
+    "@types/node": "^22.0.2",
+    "dotenv": "^16.4.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}

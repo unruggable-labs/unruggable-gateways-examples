@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",  // or "ES6"
+      "target": "esnext",  // or "ES6"
+      "moduleResolution": "nodenext",
+      "outDir": "./dist",  // Output directory
+      "esModuleInterop": true, // Optional, for compatibility
+      // other options...
+    }
+  }
