@@ -40,6 +40,8 @@ async function main() {
 
   0x0a = 10 = length of "Hello" * 2
   */
+
+  foundry.shutdown();
 }
 
 main().then(() => console.log('Example ran successfully!'));

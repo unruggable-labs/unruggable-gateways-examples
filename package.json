@@ -15,6 +15,7 @@
   "author": "clowes.eth",
   "license": "MIT",
   "dependencies": {
+    "@unruggable/evmgateway": "^0.0.2",
     "@adraffy/blocksmith": "^0.0.26",
     "@types/node": "^22.0.2",
     "dotenv": "^16.4.5",

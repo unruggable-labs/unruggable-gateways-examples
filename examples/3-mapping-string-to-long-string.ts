@@ -35,6 +35,8 @@ async function main() {
   console.log("Proven outputs: ", vOutputs);
 
   console.log("String: ", toUtf8String(vOutputs[0]));
+
+  foundry.shutdown();
 }
 
 main().then(() => console.log('Example ran successfully!'));

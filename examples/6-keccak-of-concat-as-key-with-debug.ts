@@ -83,6 +83,7 @@ async function main() {
 
     console.log("String: ", toUtf8String(vOutputs[3]));
 
+    foundry.shutdown();
 }
 
 main().then(() => console.log('Example ran successfully!'));

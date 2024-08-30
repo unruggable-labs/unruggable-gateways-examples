@@ -23,6 +23,8 @@ async function main() {
   );    
 
   console.log("Proven outputs: ", vOutputs);
+
+  foundry.shutdown();
 }
 
 main().then(() => console.log('Example ran successfully!'));
