@@ -1,4 +1,4 @@
-import { EVMRequest } from '@unruggable/evmgateway';
+import { GatewayRequest } from '@unruggable/gateways';
 import { setup } from '../helpers/utils.js';
 
 async function main() {
@@ -27,7 +27,7 @@ async function main() {
     const P = await prover();
 
     const { needs, outputs, vOutputs } = await P.prove(
-        new EVMRequest(2)
+        new GatewayRequest(2)
             .setTarget(C.target)
             .setSlot(0)
             .read()

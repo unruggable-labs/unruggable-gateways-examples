@@ -4,7 +4,9 @@
 
 # Gateway examples
 
-This repository contains a number of examples that utilise our [@unruggable/evmgateway](https://www.npmjs.com/package/@unruggable/evmgateway) package to demonstrate the functionality of our gateway codebase.
+![Gateway Examples](https://github.com/unruggable-labs/unruggable-gateways-examples/actions/workflows/examples.yml/badge.svg)
+
+This repository contains a number of examples that utilise our [@unruggable/gateways](https://www.npmjs.com/package/@unruggable/gateways) package to demonstrate the functionality of our gateway codebase.
 
 We recommend interested users take a look through our extensive [Gateway documentation](https://gateway-docs.unruggable.com) to supplement the code within this repo.
 
@@ -12,21 +14,35 @@ We recommend interested users take a look through our extensive [Gateway documen
 
 Before running the examples you must clone the repo:
 
-`git clone https://github.com/unruggable-labs/gateway-examples.git` 
+```bash
+git clone https://github.com/unruggable-labs/unruggable-gateways-examples.git
+``` 
 
-and install the dependencies using:
+install the dependencies using:
 
- `bun install`.
+ ```bash
+ bun install
+ ```
+
+and set `MAINNET_PROVIDER_URL` in `.env`:
+
+```bash
+MAINNET_PROVIDER_URL=https://eth.public-rpc.com
+```
 
 ## Running the examples
 
 You can run an example using the following syntax:
 
-`bun tsx examples/EXAMPLE_FILENAME.ts`
+```bash
+bun tsx examples/EXAMPLE_FILENAME.ts
+```
 
 For example:
 
-`bun tsx examples/6-keccak-of-concat-as-key-with-debug.ts`
+```bash
+bun tsx examples/6-keccak-of-concat-as-key-with-debug.ts
+```
 
 ## Troubleshooting
 

@@ -1,4 +1,4 @@
-import { EVMRequest } from '@unruggable/evmgateway';
+import { GatewayRequest } from '@unruggable/gateways';
 import { setup } from '../helpers/utils.js';
 import { toUtf8String } from 'ethers';
 
@@ -34,7 +34,7 @@ async function main() {
   
     const P = await prover();
 
-    const request = new EVMRequest(1)
+    const request = new GatewayRequest(1)
         .setTarget(C.target)
         .setSlot(0);
         

@@ -1,4 +1,4 @@
-import { EthProver, EVMRequest } from '@unruggable/evmgateway';
+import { EthProver, GatewayRequest } from '@unruggable/gateways';
 import { Foundry } from '@adraffy/blocksmith';
 import { Contract, JsonRpcProvider, hexlify, randomBytes } from 'ethers';
 import * as dotenv from 'dotenv'
@@ -36,7 +36,7 @@ export const setup = async () => {
       return {
         prover,
         stateRoot,
-        async prove(req: EVMRequest) {
+        async prove(req: GatewayRequest) {
           const vm = await this.prover.evalRequest(req);
 
           const { needs } = vm;
