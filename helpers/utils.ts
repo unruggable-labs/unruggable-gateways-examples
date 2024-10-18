@@ -12,17 +12,18 @@ export const setup = async () => {
   });
 
   const abi = [
-    "function verify((bytes,bytes[]),bytes32,bytes[],bytes) view returns (bytes[] outputs,uint8 exitCode)"
+    "function verify((bytes ops) req, bytes32 stateRoot, bytes[] proofs, bytes order) view returns (bytes[] outputs, uint8 exitCode)"
   ];
 
-  //Verify against a real verifier contract deployed to mainnet
-  const VERIFIER_ADDRESS = "0xf2f22404ad245e909173189bd3b35e5f153548ff";
+  //Verify against a real verifier contract deployed to Sepolia
+  //https://sepolia.etherscan.io/address/0xBAb69B0B5241c0be99282d531b9c53d7c966864F#code
+  const VERIFIER_ADDRESS = "0xBAb69B0B5241c0be99282d531b9c53d7c966864F";
 
-  if (!process.env.MAINNET_PROVIDER_URL) {
-    throw new Error("MAINNET_PROVIDER_URL is not set in .env file");
+  if (!process.env.SEPOLIA_PROVIDER_URL) {
+    throw new Error("SEPOLIA_PROVIDER_URL is not set in .env file");
   }
 
-  const p = new JsonRpcProvider(process.env.MAINNET_PROVIDER_URL);
+  const p = new JsonRpcProvider(process.env.SEPOLIA_PROVIDER_URL);
   const verifier = new Contract(VERIFIER_ADDRESS, abi, p);
 
   return {
@@ -37,31 +38,21 @@ export const setup = async () => {
         prover,
         stateRoot,
         async prove(req: GatewayRequest) {
-          const vm = await this.prover.evalRequest(req);
+          const vm = await prover.evalRequest(req);
 
-          const { needs } = vm;
+          const proofSeq = await prover.prove(vm.needs);
           const outputs = await vm.resolveOutputs();
 
-          //console.log("needs", needs);
-
-          const { proofs, order } = await this.prover.prove(needs);
-
-          // console.log('ops', req.ops);
-          // console.log('inputs', req.inputs);
-          // console.log('outputs', values);
-
           const verificationResponse = await verifier.verify(
-            [Uint8Array.from(req.ops), req.inputs],
+            req.toTuple(),
             stateRoot,
-            proofs,
-            order
+            proofSeq.proofs,
+            proofSeq.order
           );
 
           const vOutputs = verificationResponse.outputs.toArray();
-
-          //console.log("vOutputs", vOutputs);
           
-          return { needs, outputs, vOutputs, ...vm };
+          return { outputs, vOutputs, ...vm };
         },
       };
     },

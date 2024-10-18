@@ -28,7 +28,7 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env
-          echo MAINNET_PROVIDER_URL=${{ secrets.MAINNET_PROVIDER_URL }} >> .env
+          echo SEPOLIA_PROVIDER_URL=${{ secrets.SEPOLIA_PROVIDER_URL }} >> .env
           echo IS_CI=true >> .env
           cat .env
 

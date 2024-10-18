@@ -24,10 +24,10 @@ install the dependencies using:
  bun install
  ```
 
-and set `MAINNET_PROVIDER_URL` in `.env`:
+and set `SEPOLIA_PROVIDER_URL` in `.env`:
 
 ```bash
-MAINNET_PROVIDER_URL=https://eth.public-rpc.com
+SEPOLIA_PROVIDER_URL=https://eth.public-rpc.com
 ```
 
 ## Running the examples
@@ -35,17 +35,17 @@ MAINNET_PROVIDER_URL=https://eth.public-rpc.com
 You can run an example using the following syntax:
 
 ```bash
-bun tsx examples/EXAMPLE_FILENAME.ts
+bun run examples/EXAMPLE_FILENAME.ts
 ```
 
 For example:
 
 ```bash
-bun tsx examples/6-keccak-of-concat-as-key-with-debug.ts
+bun run examples/6-keccak-of-concat-as-key-with-debug.ts
 ```
 
 ## Troubleshooting
 
-These examples use a verifier deployed on Ethereum Mainnet. We utilse a public RPC defined in `.env`.
+These examples use a verifier deployed on Ethereum Sepolia. We utilse a public RPC defined in `.env`.
 
-If there are RPC issues you can set up a free account at a service like [Alchemy](https://www.alchemy.com/), [Ankr](https://www.ankr.com/), or [Infura](https://www.infura.io/) and set the `MAINNET_PROVIDER_URL` variable in `.env`.
+If there are RPC issues you can set up a free account at a service like [Alchemy](https://www.alchemy.com/), [Ankr](https://www.ankr.com/), or [Infura](https://www.infura.io/) and set the `SEPOLIA_PROVIDER_URL` variable in `.env`.
